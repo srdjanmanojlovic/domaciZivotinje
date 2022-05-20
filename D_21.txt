@@ -1,0 +1,144 @@
+Main.java
+package Domaci1705;
+
+///        U main metodi instancirati po jednan objekat od klasa, i pozvati po jednu metodu gde je ima. (
+
+
+public class Main {
+    public static void main(String[] args) {
+        Sloth bozidar = new Sloth(3, false, true);
+
+        bozidar.disanje();
+        bozidar.slothSpecies(bozidar);
+        bozidar.moveSloth();
+
+
+    }
+
+}
+
+Animal.java
+package Domaci1705;
+//Napraviti klasu Animal, koja će imati karakteristike broja nogu, i da li je sa evropskog kontitenta.
+public class Animal {
+    private int footNum;
+    private boolean isEuropean;
+
+    public  Animal(){}
+    public Animal(int footNum, boolean isEuropean){
+        this.footNum = footNum;
+        this.isEuropean = isEuropean;
+
+    }
+
+    public int getFootNum() {
+        return footNum;
+    }
+
+    public void setFootNum(int footNum) {
+        this.footNum = footNum;
+    }
+
+    public boolean isEuropean() {
+        return isEuropean;
+    }
+
+    public void setEuropean(boolean european) {
+        this.isEuropean = european;
+    }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "brojNogu=" + footNum +
+                ", evropskiKontinent=" + isEuropean +
+                '}';
+    }
+}
+
+Mammal.java
+{
+    boolean isTerrestrial;
+
+    public Mammal(){
+
+    }
+
+    public Mammal(int footNum, boolean isEuropean, boolean isTerrestrial){
+        super(footNum, isEuropean);
+        this.isTerrestrial = isTerrestrial;
+    }
+
+    public void disanje(){
+        System.out.println("Breathe with me");
+    }
+}
+Sloth.java
+package Domaci1705;
+//       napraviti klasu za nekog sisara po izboru,
+//       koji će imati barem tri karakteristike
+//       i metode specifične za tu životinju po vašem izboru.
+
+public class Sloth extends Mammal{
+    private int numberOfToes;
+    private String name;
+    boolean lazy;
+
+    public Sloth(){
+
+    }
+    public Sloth(int numberOfToes, boolean isEuropean, boolean isTerrestrial){
+        super(numberOfToes, isEuropean,isTerrestrial);
+        this.numberOfToes = numberOfToes;
+        this.name = name;
+        this.lazy = lazy;
+
+    }
+
+    public int getNumberOfToes() {
+        return numberOfToes;
+    }
+
+    public void setNumberOfToes(int numberOfToes) {
+        this.numberOfToes = numberOfToes;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public boolean isLazy() {
+        return lazy;
+    }
+
+    public void setLazy(boolean lazy) {
+        this.lazy = lazy;
+    }
+
+    @Override
+    public String toString() {
+        return "Sloth{" +
+                "numberOfToes=" + numberOfToes +
+                ", name='" + name + '\'' +
+                ", lazy=" + lazy +
+                ", isTerrestrial=" + isTerrestrial +
+                '}';
+    }
+
+    public void slothSpecies(Sloth sloth){
+        if (sloth.numberOfToes==3){
+            System.out.println("This sloth is  Bradypus");
+        }
+        else if (sloth.numberOfToes==2){
+            System.out.println("This sloth is  Choloepus");
+        }
+        else System.out.println("Are you sure that this is a sloth");
+    }
+    public void moveSloth(){
+        System.out.println("No");
+    }
+}
